@@ -1,0 +1,26 @@
+{
+    // 使用 IntelliSense 了解相关属性。
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "request": "launch",
+            "name": "Launch Program",
+            "type": "node",
+            "program": "${workspaceFolder}/main.ts",
+            // "cwd": "${workspaceFolder}",
+            "cwd": "C:\\Users\\peter_chen.WTMEC\\SyncData\\Projects\\MCU\\S32K344EVB\\S32K344EVB\\TestCAM1153_344",
+            "env": {},
+            "runtimeExecutable": "C:\\Users\\peter_chen.WTMEC\\AppData\\Local\\Microsoft\\WinGet\\Packages\\DenoLand.Deno_Microsoft.Winget.Source_8wekyb3d8bbwe\\deno.EXE",
+            "runtimeArgs": [
+                "run",
+                "--unstable",
+                "--inspect-wait",
+                "--allow-all"
+            ],
+            "attachSimplePort": 9229
+        }
+    ]
+}

@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "dev": "deno run --watch --unstable --allow-read main.ts",
+    "run": "deno run --allow-read main.ts"
+  },
+  "imports": {
+  }
+}
