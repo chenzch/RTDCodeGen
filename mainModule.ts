@@ -6,32 +6,18 @@ import { CodeModule } from './codeModule.ts';
 class MainModule extends CodeModule {
     constructor() {
         super();
-        const requiredFiles = ['RTD/include/OsIf.h'];
-        this.findFiles(requiredFiles);
     }
 
     include(): string {
-        let text = '#include "Mcal.h"\n';
-        if (this.fileExist(0)) {
-            text += '#include "OsIf.h"\n';
-        }
-        return text;
+        return '#include "Mcal.h"\n#include "OsIf.h"';
     }
 
     start(): string {
-        let text = 'int main(void) {\n';
-        if (this.fileExist(0)) {
-            text += '    SuspendAllInterrupts();\n';
-        }
-        return text;
+        return 'int main(void) {\n\n    SuspendAllInterrupts();\n';
     }
 
     end(): string {
-        let text = '    for(;;);\n    return 0;\n}\n';
-        if (this.fileExist(0)) {
-            text = '    ResumeAllInterrupts();\n\n' + text;
-        }
-        return text;
+        return '    ResumeAllInterrupts();\n\n    for(;;);\n    return 0;\n}\n';
     }
 }
 

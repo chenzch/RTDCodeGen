@@ -7,25 +7,29 @@ import { CodeModule } from './codeModule.ts';
 class McuModule extends CodeModule {
     constructor() {
         super();
-        const requiredFiles = ['RTD\\include\\Mcu.h', 'RTD\\include\\Clock_Ip.h', 'RTD\\include\\Power_Ip.h', 'RTD\\include\\Ram_Ip.h'];
+        const requiredFiles = ['generate\\include\\Mcu_*PBcfg.h', 'generate\\include\\Clock_Ip_*PBcfg.h', 'generate\\include\\Power_Ip_*PBcfg.h', 'generate\\include\\Ram_Ip_*PBcfg.h'];
         this.findFiles(requiredFiles);
     }
 
     include(): string {
-        if (this.fileExist(0)) {
-            return '#include "Mcu.h"\n';
+        if (!this.fileExist(0)) {
+            return '#include "Mcu.h"';
         } else {
             let text = '';
             if (this.fileExist(1)) {
-                text += '#include "Clock_Ip.h"\n';
+                text += '\n#include "Clock_Ip.h"';
             }
             if (this.fileExist(2)) {
-                text += '#include "Power_Ip.h"\n';
+                text += '\n#include "Power_Ip.h"';
             }
             if (this.fileExist(3)) {
-                text += '#include "Ram_Ip.h"\n';
+                text += '\n#include "Ram_Ip.h"';
             }
-            return text;
+            if (text.length > 0) {
+                return text.substring(1);
+            } else {
+                return text;
+            }
         }
     }
 
