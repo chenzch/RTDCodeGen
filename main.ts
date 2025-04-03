@@ -5,8 +5,6 @@ import { PortModule } from './portModule.ts';
 
 if (await fileExist("generate/include") &&
     await fileExist("generate/src") &&
-    await fileExist("RTD/include") &&
-    await fileExist("RTD/src") &&
     await fileExist("board"))
 {
 
